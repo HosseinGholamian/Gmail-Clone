@@ -1,0 +1,82 @@
+[
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "pprint",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
+        "documentation": {}
+    },
+    {
+        "label": "digikala_data",
+        "kind": 2,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "def digikala_data(url='https://api.digikala.com/v1/search/', page=\"1\"):\n    res1 = requests.get(url + '?page=' + page)\n    res1 = res1.json()\n    return res1\ndef getDigiKalaAllProduct():\n    products = []\n    for page in range(1, 10):\n        response = digikala_data(\n            'https://api.digikala.com/v1/search/', str(page))\n        products_page = response['data']['products']",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "getDigiKalaAllProduct",
+        "kind": 2,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "def getDigiKalaAllProduct():\n    products = []\n    for page in range(1, 10):\n        response = digikala_data(\n            'https://api.digikala.com/v1/search/', str(page))\n        products_page = response['data']['products']\n        for i in products_page:\n            products.append(i)\n        print(page)\n    f = open(\"digi10.json\", \"a\") ",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "products",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "products = json.loads(file_contents)\nprint(products['data'][0]['data_layer']['item_category2'])\napproved_product = []\nfor product in products['data']:\n    item_category2 = product['data_layer']['item_category2']\n    item_category3 = product['data_layer']['item_category3']\n    item_category4 = product['data_layer']['item_category4']\n    item_category5 = product['data_layer']['item_category5']\n    check2 = re.search(\"^.*بهداشت.*$\" , item_category2)\n    check3 = re.search(\"^.*بهداشت.*$\" , item_category3)",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "approved_product",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "approved_product = []\nfor product in products['data']:\n    item_category2 = product['data_layer']['item_category2']\n    item_category3 = product['data_layer']['item_category3']\n    item_category4 = product['data_layer']['item_category4']\n    item_category5 = product['data_layer']['item_category5']\n    check2 = re.search(\"^.*بهداشت.*$\" , item_category2)\n    check3 = re.search(\"^.*بهداشت.*$\" , item_category3)\n    check4 = re.search(\"^.*بهداشت.*$\" , item_category4)\n    check5 = re.search(\"^.*بهداشت.*$\" , item_category5)",
+        "detail": "test",
+        "documentation": {}
+    }
+]
